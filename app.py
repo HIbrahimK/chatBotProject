@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import chatMain
 app = Flask(__name__)
 app.static_folder = 'static'
 
@@ -10,11 +11,11 @@ def index():
 @app.route("/get")  # post
 def get_bot_response():
     userText = request.args.get('msg')
-   # cevap = chatMain.chat(userText)[0]
-    #tag = chatMain.chat(userText)[1]
+    cevap = chatMain.chat(userText)[0]
+    tag = chatMain.chat(userText)[1]
 
     #veritabanıKayit(tag, userText, cevap)
     # print(chatMain.chat(userText)[0])
-    return (userText)
+    return (cevap)
 if __name__ == "__main__":
     app.run(debug=False)
