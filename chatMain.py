@@ -12,7 +12,7 @@ import json
 #import requests
 #import bs4
 
-# nltk.download('punkt')
+nltk.download('punkt')
 
 # Json dosyası olarak oluşturulan Covid-19 metin veri setini yükleme
 with open(r"covidDataset.json", encoding="utf8") as file:
