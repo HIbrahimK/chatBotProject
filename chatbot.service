@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve chatbot
+After=network.target
+
+[Service]
+User=halil
+Group=www-data
+WorkingDirectory=/root/chatbot
+Environment="PATH=/root/chatbot/chatbotenv/bin"
+ExecStart=/root/chatbot/chatbotenv/bin/uwsgi --ini chatbot.ini
+
+[Install]
+WantedBy=multi-user.target

@@ -27,4 +27,5 @@ def veritabanıKayit(tag, soru, cevap):
     c.execute("INSERT INTO sorular VALUES(?,?,?,?,?)", (str(my_id), tag, soru, cevap, " "))
     conn.commit()
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run('165.227.10.85')
+uwsgi --socket 165.227.10.85:5000 --protocol=http -w wsgi:app

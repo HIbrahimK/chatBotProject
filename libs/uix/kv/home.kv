@@ -1,0 +1,64 @@
+<Home_Screen>:
+    name: "home"
+    BoxLayout:
+        orientation:'vertical'
+
+        MDToolbar:
+            title: app.APP_NAME
+            size_hint: 1,.08
+            right_action_items: [ ["account", lambda x:app.screen_manager.change_screen("profile")]] 
+            elevation: 5
+        
+        MDBottomNavigation:
+            id: android_tabs
+            
+            MDBottomNavigationItem:        
+                name: "chat_scr"
+                text: f"Soru Sor"
+                icon: "chat"
+                ScrollView:
+                    MDList:
+                        id: chat_tab
+        
+            MDBottomNavigationItem:
+                name: "search_scr"
+                text: f"Haberler"
+                icon: "account-search"
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(5)
+                    padding: dp(10)
+
+                    MDBoxLayout:
+                        adaptive_height: True
+                        MDChip:
+                            label: "Hürriyet"
+                            icon: "city"
+                            check: True
+                            callback: root.callback
+
+                        MDChip:
+                            label: "Milliyet"
+                            icon: "city"
+                            check: True
+                            callback: root.callback
+
+
+                        MDIconButton:
+                            icon: 'magnify'
+                            on_release: root.search_account()
+
+                    ScrollView:
+                        MDList:
+                            id: search_items
+<Content>:
+    adaptive_height: True
+
+
+    ScrollView:
+
+        MDGridLayout:
+            id: box
+            cols: 1
+            adaptive_height: True
